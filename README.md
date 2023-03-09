@@ -1,3 +1,12 @@
+This is a fork of [proper-lockfile](https://github.com/moxystudio/node-proper-lockfile)
+with https://github.com/moxystudio/node-proper-lockfile/pull/65 reverted. The
+use of `signal-exit` completely breaks attempting to ctrl+c out of the process
+which breaks common developer workflows (see
+https://github.com/moxystudio/node-proper-lockfile/issues/111). The downside is
+that it's possible to be left with a lockfile if you issue a `SIGINT` or
+`SIGTERM` while a lock is active, but that should only be done by developers,
+and not end users.
+
 # proper-lockfile
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
@@ -151,12 +160,12 @@ lockfile.check('some/file')
 
 ### .lockSync(file, [options])
 
-Sync version of `.lock()`.   
+Sync version of `.lock()`.
 Returns the `release` function or throws on error.
 
 ### .unlockSync(file, [options])
 
-Sync version of `.unlock()`.   
+Sync version of `.unlock()`.
 Throws on error.
 
 ### .checkSync(file, [options])
@@ -172,7 +181,7 @@ Returns a boolean or throws on error.
 
 ## Tests
 
-`$ npm test`   
+`$ npm test`
 `$ npm test -- --watch` during development
 
 The test suite is very extensive. There's even a stress test to guarantee exclusiveness of locks.
