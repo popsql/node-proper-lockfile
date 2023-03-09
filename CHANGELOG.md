@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.3"></a>
+## [4.1.3](https://github.com/popsql/node-proper-lockfile/compare/v4.1.2...v4.1.3) (2023-03-09)
+
+### Bug Fixes
+
+* Revert [#65](https://github.com/moxystudio/node-proper-lockfile/pull/65) to fix exiting script with Ctrl+C
+
+
+
 <a name="4.1.2"></a>
 ## [4.1.2](https://github.com/moxystudio/node-proper-lockfile/compare/v4.1.1...v4.1.2) (2021-01-25)
 
